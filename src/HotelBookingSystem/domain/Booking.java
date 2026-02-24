@@ -14,11 +14,23 @@ public class Booking {
     private UUID roomId;
     private double totalAmount;
     private double pricePerNight;
-    private Date checkInDate;
-    private Date checkOutDate;
+    private Long checkInDate;
+    private Long checkOutDate;
     private BookingStatus bookingStatus;
     private PaymentStatus paymentStatus;
 
+
+    public Booking(UUID hotelId, UUID roomTypeId, UUID roomId, double totalAmount, double pricePerNight, Long checkOutDate, Long checkInDate, BookingStatus bookingStatus, PaymentStatus paymentStatus) {
+        this.hotelId = hotelId;
+        this.roomTypeId = roomTypeId;
+        this.roomId = roomId;
+        this.totalAmount = totalAmount;
+        this.pricePerNight = pricePerNight;
+        this.checkOutDate = checkOutDate;
+        this.checkInDate = checkInDate;
+        this.bookingStatus = bookingStatus;
+        this.paymentStatus = paymentStatus;
+    }
 
     public UUID getId() {
         return id;
@@ -68,19 +80,19 @@ public class Booking {
         this.pricePerNight = pricePerNight;
     }
 
-    public Date getCheckInDate() {
+    public Long getCheckInDate() {
         return checkInDate;
     }
 
-    public void setCheckInDate(Date checkInDate) {
+    public void setCheckInDate(Long checkInDate) {
         this.checkInDate = checkInDate;
     }
 
-    public Date getCheckOutDate() {
+    public Long getCheckOutDate() {
         return checkOutDate;
     }
 
-    public void setCheckOutDate(Date checkOutDate) {
+    public void setCheckOutDate(Long checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
 

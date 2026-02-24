@@ -1,18 +1,22 @@
 package HotelBookingSystem.domain;
 
+import HotelBookingSystem.Enum.Rating;
+
 import java.util.UUID;
 
-enum Rating{
-    ONE, TWO, THREE, FOUR, FIVE
-}
 
 public class Hotel {
 
     private UUID id;
-    private String mame;
+    private String name;
     private Location location;
-    private  Rating rating;
+    private Rating rating;
 
+    public Hotel( String mame, Rating rating) {
+        this.id = UUID.randomUUID();
+        this.name = mame;
+        this.rating = rating;
+    }
 
     public UUID getId() {
         return id;
@@ -22,12 +26,12 @@ public class Hotel {
         this.id = id;
     }
 
-    public String getMame() {
-        return mame;
+    public String getName() {
+        return name;
     }
 
-    public void setMame(String mame) {
-        this.mame = mame;
+    public void setName(String mame) {
+        this.name = mame;
     }
 
     public Location getLocation() {

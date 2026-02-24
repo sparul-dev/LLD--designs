@@ -2,22 +2,22 @@ package HotelBookingSystem.domain;
 
 public class Location {
 
-    private Double latitude;
-    private Double longitude;
+    private String city;
+    private String country;
 
-    public Double getLongitude() {
-        return longitude;
+    public String getCity() {
+        return city;
     }
 
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public Double getLatitude() {
-        return latitude;
+    public String getCountry() {
+        return country;
     }
 
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
+    public void setCountry(String country) {
+        this.country = country;
     }
 }
