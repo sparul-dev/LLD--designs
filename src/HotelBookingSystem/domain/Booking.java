@@ -2,8 +2,9 @@ package HotelBookingSystem.domain;
 
 import HotelBookingSystem.Enum.BookingStatus;
 import HotelBookingSystem.Enum.PaymentStatus;
+import HotelBookingSystem.domain.state.BookingState;
+import HotelBookingSystem.domain.state.CreatedState;
 
-import java.util.Date;
 import java.util.UUID;
 
 public class Booking {
@@ -17,6 +18,7 @@ public class Booking {
     private Long checkInDate;
     private Long checkOutDate;
     private BookingStatus bookingStatus;
+    private BookingState bookingState;
     private PaymentStatus paymentStatus;
 
 
@@ -30,6 +32,35 @@ public class Booking {
         this.checkInDate = checkInDate;
         this.bookingStatus = bookingStatus;
         this.paymentStatus = paymentStatus;
+        this.bookingState = new CreatedState();
+    }
+
+    public Booking hold(Booking b){
+        return  bookingState.hold(b);
+    };
+    public Booking confirm(Booking b ){
+        return bookingState.confirm(b);
+    }
+    public  Booking checkIn(Booking b ){
+        return bookingState.checkIn(b);
+    }
+    public Booking checkout(Booking b ){
+        return bookingState.checkout(b);
+    }
+    public Booking cancelBooking(Booking b ){
+        return bookingState.cancelBooking(b);
+    }
+    public  BookingStatus getState(Booking b){
+        return bookingState.getState(b);
+    }
+
+
+    public BookingState getBookingState() {
+        return bookingState;
+    }
+
+    public void setBookingState(BookingState bookingState) {
+        this.bookingState = bookingState;
     }
 
     public UUID getId() {
